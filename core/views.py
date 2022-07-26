@@ -18,6 +18,7 @@ class OrderItemView(ListView):
     model = Item
 
 
-class OrderItemView(ListView):
+class ItemDetailView(ListView):
     template_name = 'product-page.html'
     model = Item
+
