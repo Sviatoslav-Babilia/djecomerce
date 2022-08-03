@@ -1,6 +1,7 @@
 from pyexpat import model
 from django.db import models
 from django.conf import settings
+from django.shortcuts import reverse
 # Create your models here.
 
 CATEGORY_CHOICES =(
@@ -26,6 +27,13 @@ class Item (models.Model):
 
     def __str__(self):
         return self.title
+
+    
+    def get_absolute_url(self):
+        return reverse("core:product", kwargs={
+            'slug': self.slug
+        })
+
 
 
 class OrderItem (models.Model):

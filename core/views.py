@@ -10,12 +10,6 @@ class ItemDetailView(DetailView):
     model = Item
     template_name = 'product.html'
 
-    # def get_absolute_url(self):
-    #     return reverse("core:product", kwargs={
-    #         'slug': self.slug
-    #     })
-
-
 
 
 class OrderItemView(ListView):
