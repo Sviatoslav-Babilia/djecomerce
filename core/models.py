@@ -3,10 +3,26 @@ from django.db import models
 from django.conf import settings
 # Create your models here.
 
+CATEGORY_CHOICES =(
+    ('S', 'Shirt'),
+    ('SW', 'Sportwear'),
+    ('OW', 'Outwear')
+)
+LABEL_CHOICES =(
+    ('P', 'primary'),
+    ('S', 'secondary'),
+    ('D', 'danger')
+)
 
 class Item (models.Model):
     title = models.CharField(max_length=50)
     price = models.FloatField()
+    discaunt_price = models.FloatField(blank=True, null=True)
+    category = models.CharField(choices=CATEGORY_CHOICES, max_length=2, default='S')
+    lable = models.CharField(choices=LABEL_CHOICES, max_length=1, default='S')
+    slug = models.SlugField()
+    description = models.TextField(max_length=1000)
+
 
     def __str__(self):
         return self.title
